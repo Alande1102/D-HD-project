@@ -8,3 +8,15 @@ C:\Users\Alex\source\repos\platformgame\platformgame\obj\Debug\platformgame.cspr
 C:\Users\Alex\source\repos\platformgame\platformgame\obj\Debug\platformgame.csproj.CoreCompileInputs.cache
 C:\Users\Alex\source\repos\platformgame\platformgame\obj\Debug\platformgame.exe
 C:\Users\Alex\source\repos\platformgame\platformgame\obj\Debug\platformgame.pdb
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.csprojAssemblyReference.cache
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.Level1.resources
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.MainMenu.resources
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.Properties.Resources.resources
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.csproj.GenerateResource.cache
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.exe
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.pdb
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\bin\Debug\platformgame.exe.config
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\bin\Debug\platformgame.exe
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\bin\Debug\platformgame.pdb
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.Level2.resources
+C:\Users\oscar\Desktop\D-HD-project\DHD project\platformgame\platformgame\obj\Debug\platformgame.LevelSelect.resources
