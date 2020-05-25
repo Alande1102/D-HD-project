@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace platformgame
 {
-    public partial class Level2 : Form
+    public partial class Level3 : Form
     {
         bool goLeft, goRight, jumping, isGameOver, Win = false;
         int jumpSpeed;
@@ -25,8 +25,9 @@ namespace platformgame
         int enemyTwoSpeed = 3;
 
 
+        Level4 Level_4 = new Level4();
 
-        public Level2()
+        public Level3()
         {
             InitializeComponent();
         }
@@ -127,13 +128,13 @@ namespace platformgame
             }
 
             EnemyOne.Left -= enemyOneSpeed;
-            if (EnemyOne.Left < pictureBox9.Left || EnemyOne.Left + EnemyOne.Width > pictureBox9.Left + pictureBox9.Width)
+            if (EnemyOne.Left < pictureBox16.Left || EnemyOne.Left + EnemyOne.Width > pictureBox16.Left + pictureBox16.Width)
             {
                 enemyOneSpeed = -enemyOneSpeed;
             }
 
             EnemyTwo.Left -= enemyTwoSpeed;
-            if (EnemyTwo.Left < pictureBox2.Left || EnemyTwo.Left + EnemyTwo.Width > pictureBox2.Left + pictureBox2.Width)
+            if (EnemyTwo.Left < VerticlePlatform.Left || EnemyTwo.Left + EnemyTwo.Width > VerticlePlatform.Left + VerticlePlatform.Width)
             {
                 enemyTwoSpeed = -enemyTwoSpeed;
             }
@@ -145,7 +146,7 @@ namespace platformgame
                 txtScore.Text = "score: " + score + Environment.NewLine + "You fell!";
             }
 
-            if (Player.Bounds.IntersectsWith(door.Bounds) && score == 11)
+            if (Player.Bounds.IntersectsWith(door.Bounds) && score == 14)
             {
                 GameTimer.Stop();
                 Win = true;
@@ -156,6 +157,7 @@ namespace platformgame
                 txtScore.Text = "Score: " + score + Environment.NewLine + "collect the coins";
             }
         }
+
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
@@ -172,6 +174,12 @@ namespace platformgame
                 jumping = true;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
@@ -189,18 +197,16 @@ namespace platformgame
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
                 RestartGame();
-            }            
+            }
+            // Go to level 2 When you win
             if (e.KeyCode == Keys.Enter && Win == true)
             {
-                    Level3 Level_3 = new Level3();
-                    Level_3.Show();
-                    Level_3.Location = this.Location;
-                    Level_3.TopMost = true;
-                    this.Hide();
-                
+                Level_4.Show();
+                Level_4.Location = this.Location;
+                Level_4.TopMost = true;
+                this.Hide();
             }
         }
-
         private void RestartGame()
         {
             jumping = false;
@@ -221,17 +227,12 @@ namespace platformgame
             Player.Left = 52;
             Player.Top = 525;
 
-            EnemyOne.Left = 327;
-            EnemyOne.Top = 334;
 
-            EnemyTwo.Left = 274;
-            EnemyTwo.Top = 508;
 
             VerticlePlatform.Top = 477;
             HorizontalPlatform.Left = 187;
 
             GameTimer.Start();
-            
         }
     }
 }

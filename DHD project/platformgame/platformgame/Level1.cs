@@ -26,7 +26,7 @@ namespace platformgame
         int enemyTwoSpeed = 3;
 
 
-        Level2 Level_2 = new Level2();
+
 
         public Level1()
         {
@@ -202,6 +202,7 @@ namespace platformgame
             // Go to level 2 When you win
             if (e.KeyCode == Keys.Enter && Win == true)
             {
+                Level2 Level_2 = new Level2();
                 Level_2.Show();
                 Level_2.Location = this.Location;
                 Level_2.TopMost = true;

@@ -14,6 +14,9 @@ namespace platformgame
     {
         Level1 Level_1 = new Level1();
         Level2 Level_2 = new Level2();
+        Level3 Level_3 = new Level3();
+        Level4 Level_4 = new Level4();
+        Level5 Level_5 = new Level5();
         public LevelSelect()
         {
             InitializeComponent();
@@ -37,17 +40,26 @@ namespace platformgame
 
         private void Select3(object sender, EventArgs e)
         {
-            //Level 3
+            Level_3.Show();
+            Level_3.Location = this.Location;
+            Level_3.TopMost = true;
+            this.Hide();
         }
 
         private void Select4(object sender, EventArgs e)
         {
-            //Level 4
+            Level_4.Show();
+            Level_4.Location = this.Location;
+            Level_4.TopMost = true;
+            this.Hide();
         }
 
         private void Select5(object sender, EventArgs e)
         {
-            //Level 5
+            Level_5.Show();
+            Level_5.Location = this.Location;
+            Level_5.TopMost = true;
+            this.Hide();
         }
     }
 }

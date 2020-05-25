@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace platformgame
 {
-    public partial class Level2 : Form
+    public partial class Level4 : Form
     {
         bool goLeft, goRight, jumping, isGameOver, Win = false;
         int jumpSpeed;
@@ -22,11 +22,12 @@ namespace platformgame
         int verticalSpeed = 3;
 
         int enemyOneSpeed = 5;
-        int enemyTwoSpeed = 3;
 
 
 
-        public Level2()
+
+
+        public Level4()
         {
             InitializeComponent();
         }
@@ -112,12 +113,6 @@ namespace platformgame
                 }
             }
 
-            HorizontalPlatform.Left -= horizontalSpeed;
-
-            if (HorizontalPlatform.Left < 0 || HorizontalPlatform.Left + HorizontalPlatform.Width > this.ClientSize.Width)
-            {
-                horizontalSpeed = -horizontalSpeed;
-            }
 
             VerticlePlatform.Top += verticalSpeed;
 
@@ -126,17 +121,13 @@ namespace platformgame
                 verticalSpeed = -verticalSpeed;
             }
 
-            EnemyOne.Left -= enemyOneSpeed;
-            if (EnemyOne.Left < pictureBox9.Left || EnemyOne.Left + EnemyOne.Width > pictureBox9.Left + pictureBox9.Width)
+            EnemyOne.Left += enemyOneSpeed;
+            if (EnemyOne.Left < pictureBox1.Left || EnemyOne.Left + EnemyOne.Width > pictureBox1.Left + pictureBox1.Width)
             {
                 enemyOneSpeed = -enemyOneSpeed;
             }
 
-            EnemyTwo.Left -= enemyTwoSpeed;
-            if (EnemyTwo.Left < pictureBox2.Left || EnemyTwo.Left + EnemyTwo.Width > pictureBox2.Left + pictureBox2.Width)
-            {
-                enemyTwoSpeed = -enemyTwoSpeed;
-            }
+
 
             if (Player.Top + Player.Height > this.ClientSize.Height + 50)
             {
@@ -145,7 +136,7 @@ namespace platformgame
                 txtScore.Text = "score: " + score + Environment.NewLine + "You fell!";
             }
 
-            if (Player.Bounds.IntersectsWith(door.Bounds) && score == 11)
+            if (Player.Bounds.IntersectsWith(door.Bounds) && score == 12)
             {
                 GameTimer.Stop();
                 Win = true;
@@ -156,6 +147,7 @@ namespace platformgame
                 txtScore.Text = "Score: " + score + Environment.NewLine + "collect the coins";
             }
         }
+
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
@@ -172,6 +164,12 @@ namespace platformgame
                 jumping = true;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
@@ -189,18 +187,17 @@ namespace platformgame
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
                 RestartGame();
-            }            
-            if (e.KeyCode == Keys.Enter && Win == true)
-            {
-                    Level3 Level_3 = new Level3();
-                    Level_3.Show();
-                    Level_3.Location = this.Location;
-                    Level_3.TopMost = true;
-                    this.Hide();
-                
             }
+            // Go to level 2 When you win
+            if (e.KeyCode == Keys.Enter && Win == true)
+             {
+               Level5 Level_5 = new Level5();
+               Level_5.Show();
+               Level_5.Location = this.Location;
+               Level_5.TopMost = true;
+             this.Hide();
+             }
         }
-
         private void RestartGame()
         {
             jumping = false;
@@ -218,20 +215,14 @@ namespace platformgame
                 }
             }
 
-            Player.Left = 52;
+            Player.Left = 16;
             Player.Top = 525;
 
-            EnemyOne.Left = 327;
-            EnemyOne.Top = 334;
-
-            EnemyTwo.Left = 274;
-            EnemyTwo.Top = 508;
+            EnemyOne.Left = 140;
 
             VerticlePlatform.Top = 477;
-            HorizontalPlatform.Left = 187;
 
             GameTimer.Start();
-            
         }
     }
 }
