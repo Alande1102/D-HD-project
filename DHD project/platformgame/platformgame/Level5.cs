@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//For comments on how the following code works, please see Level1.cs
+//The following code is reused for each level and therefore the comments would be identical.
+//The only differences are the positions of the platforms and enemies, and the amount of platforms/coins used.
+
 namespace platformgame
 {
     public partial class Level5 : Form
@@ -44,7 +48,7 @@ namespace platformgame
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
-            txtScore.Text = "Score: " + score;
+            txtScore.Text = "Score: " + score + Environment.NewLine + "Press esc to exit to Main Menu";
 
             Player.Top += jumpSpeed;
 
@@ -150,11 +154,11 @@ namespace platformgame
             {
                 GameTimer.Stop();
                 Win = true;
-                txtScore.Text = "Score: " + score + Environment.NewLine + "All coins collected" + Environment.NewLine + "Press enter for next level";
+                txtScore.Text = "Score: " + score + Environment.NewLine + "All coins collected, You Win!" + Environment.NewLine + "Press enter for Main menu";
             }
             else
             {
-                txtScore.Text = "Score: " + score + Environment.NewLine + "collect the coins";
+                txtScore.Text = "Score: " + score + Environment.NewLine + "collect the coins" + Environment.NewLine + "(Press esc to exit to Main Menu)";
             }
         }
 
@@ -205,7 +209,16 @@ namespace platformgame
                 MainMenu.Show();
                 MainMenu.Location = this.Location;
                 MainMenu.TopMost = true;
-                this.Hide();
+                this.Close();
+            }
+            //press esc to get back to main menu
+            if (e.KeyCode == Keys.Escape && Win == false)
+            {
+                MainMenu main = new MainMenu();
+                main.Show();
+                main.Location = this.Location;
+                main.TopMost = true;
+                this.Close();
             }
         }
         private void RestartGame()
@@ -216,7 +229,7 @@ namespace platformgame
             isGameOver = false;
             score = 0;
 
-            txtScore.Text = "Score: " + score;
+            txtScore.Text = "Score: " + score + Environment.NewLine + "Press esc to exit to Main Menu";
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && x.Visible == false)

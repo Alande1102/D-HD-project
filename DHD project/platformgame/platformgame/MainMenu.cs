@@ -12,8 +12,8 @@ namespace platformgame
 {
     public partial class MainMenu : Form
     {
-        Level1 Level_1 = new Level1();
-        LevelSelect select = new LevelSelect();
+
+
         public MainMenu()
         {
             InitializeComponent();
@@ -21,6 +21,8 @@ namespace platformgame
 
         private void Play_Game(object sender, EventArgs e)
         {
+            //creates a new level 1 form when you press play game
+            Level1 Level_1 = new Level1();
             Level_1.Show();
             Level_1.Location = this.Location;
             Level_1.TopMost = true;
@@ -29,6 +31,8 @@ namespace platformgame
 
         private void Continue_Game(object sender, EventArgs e)
         {
+            //creates a new level selection form when you pless select level
+            LevelSelect select = new LevelSelect();
             select.Show();
             select.Location = this.Location;
             select.TopMost = true;
@@ -37,6 +41,7 @@ namespace platformgame
 
         private void Exit_Game(object sender, EventArgs e)
         {
+            //closes the form when you press exit
             this.Close();
         }
     }
